@@ -4,5 +4,9 @@
       get: (searchParams, prop) => searchParams.get(prop),
     });
     let value = params.v;
-    document.getElementById('resultIframe').src = atob(decodeURIComponent(value));
+    url = new URL(window.location.href);
+    
+    if (url.searchParams.has('v')) {
+        document.getElementById('resultIframe').src = atob(decodeURIComponent(value));    
+    }
 </script>

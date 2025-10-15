@@ -1,0 +1,15 @@
+<label for="urlInput">Enter a YouTube URL:</label>
+<input type="text" name="urlInput" id="urlInput"></input>
+<button id="submitButton" onclick="makeLink();">Make Student Link</button>
+<p id="result"></p>
+<script>
+    var youtubeLink
+    function makeLink() {
+        youtubeLink = document.getElementById('urlInput').value;
+        youtubeLink = youtubeLink.replace("https://","");
+        youtubeLink = youtubeLink.replace("http://","");
+        youtubeLink = youtubeLink.replace("youtube.com/watch?v=","");
+        youtubeLink = youtubeLink.replace("youtu.be/","");
+        document.getElementById('result').innerText = "https://romig-utils.github.io/video/?v=" + encodeURIComponent(btoa("https://www.youtube-nocookie.com/embed/"+youtubeLink))
+    }
+</script>
